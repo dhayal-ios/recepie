@@ -10,21 +10,54 @@ import UIKit
 
 class RecipeListViewController: UIViewController {
 
+    @IBOutlet weak var recipeTableView: UITableView!
+    
+    var model = RecipeModel()
+    var selectedType: RecipeType?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        recipeTableView.dataSource = self
+        recipeTableView.delegate = self
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func recipeSegment(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0,2:
+            selectedType = .vegetarian
+        case 1:
+            selectedType = .meat
+        default:
+            selectedType = .vegetarian
+        }
+        
+        recipeTableView.reloadData()
     }
-    */
-
+    
+    
 }
+
+extension RecipeListViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return model.burgers(forType: selectedType).count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeCell", for: indexPath)
+        let recipes = model.burgers(forType: selectedType)[indexPath.row]
+        cell.textLabel?.text = recipes.name
+        cell.detailTextLabel?.text = recipes.ingredients
+        cell.imageView?.image = UIImage(named: recipes.thumbnailName)
+        
+        return cell;
+    }
+    
+}
+
+extension RecipeListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+}
+
