@@ -27,4 +27,8 @@ class RecipeModel {
         guard let type = type else { return recipes }
         return recipes.filter { $0.type == type }
     }
+    
+    func addRecipe(recipe: Recipe) {
+        recipes.append(recipe)
+    }
 }

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qYp-j2-hql">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Recipe Detail-->
+        <scene sceneID="OgY-44-r0b">
+            <objects>
+                <viewController id="qYp-j2-hql" customClass="RecipeDetailViewController" customModule="Recipe" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tH6-ds-Sp3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KWy-aP-kjV">
+                                <rect key="frame" x="20" y="61" width="374" height="264"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="uEB-QG-5EX">
+                                <rect key="frame" x="20" y="362" width="374" height="459"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tfe-pE-gC9">
+                                <rect key="frame" x="20" y="333.5" width="374" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="KWy-aP-kjV" firstAttribute="top" secondItem="TIs-Mb-jQv" secondAttribute="top" constant="17" id="0E4-Pu-0VN"/>
+                            <constraint firstItem="tfe-pE-gC9" firstAttribute="leading" secondItem="TIs-Mb-jQv" secondAttribute="leading" constant="20" id="4Jz-hg-QCe"/>
+                            <constraint firstItem="uEB-QG-5EX" firstAttribute="top" secondItem="tfe-pE-gC9" secondAttribute="bottom" constant="8" id="IHg-Li-Mnq"/>
+                            <constraint firstItem="TIs-Mb-jQv" firstAttribute="bottom" secondItem="tfe-pE-gC9" secondAttribute="bottom" constant="508" id="Oet-i0-V6h"/>
+                            <constraint firstItem="KWy-aP-kjV" firstAttribute="leading" secondItem="TIs-Mb-jQv" secondAttribute="leading" constant="20" id="Wz6-AR-6AU"/>
+                            <constraint firstItem="TIs-Mb-jQv" firstAttribute="trailing" secondItem="KWy-aP-kjV" secondAttribute="trailing" constant="20" id="lPN-M5-Jwl"/>
+                            <constraint firstItem="TIs-Mb-jQv" firstAttribute="bottom" secondItem="uEB-QG-5EX" secondAttribute="bottom" constant="41" id="lUo-mG-ewd"/>
+                            <constraint firstItem="uEB-QG-5EX" firstAttribute="leading" secondItem="TIs-Mb-jQv" secondAttribute="leading" constant="20" id="m2B-CE-gzo"/>
+                            <constraint firstItem="TIs-Mb-jQv" firstAttribute="trailing" secondItem="uEB-QG-5EX" secondAttribute="trailing" constant="20" id="mXI-zt-B5I"/>
+                            <constraint firstItem="TIs-Mb-jQv" firstAttribute="trailing" secondItem="tfe-pE-gC9" secondAttribute="trailing" constant="20" id="mn6-ii-ehK"/>
+                            <constraint firstItem="tfe-pE-gC9" firstAttribute="top" secondItem="KWy-aP-kjV" secondAttribute="bottom" constant="8.5" id="ryG-8R-Rx5"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="TIs-Mb-jQv"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Recipe Detail" id="XoX-fz-26o"/>
+                    <connections>
+                        <outlet property="detailImage" destination="KWy-aP-kjV" id="9VV-aD-sqJ"/>
+                        <outlet property="detailNameLabel" destination="tfe-pE-gC9" id="NpG-ea-JsS"/>
+                        <outlet property="detailRecipe" destination="uEB-QG-5EX" id="Cze-hI-t5C"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UHO-He-8RW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="839.13043478260875" y="67.633928571428569"/>
+        </scene>
+    </scenes>
+</document>

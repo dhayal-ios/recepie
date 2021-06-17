@@ -8,8 +8,8 @@
 
 import UIKit
 
-class RecipeListViewController: UIViewController {
-
+class RecipeListViewController: UIViewController, AddRecipeDelegate {
+    
     @IBOutlet weak var recipeTableView: UITableView!
     
     var model = RecipeModel()
@@ -21,16 +21,35 @@ class RecipeListViewController: UIViewController {
         recipeTableView.delegate = self
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "recipeDetail" {
+            if let indexPath = recipeTableView.indexPathForSelectedRow {
+                let recipe = model.recipes[indexPath.row]
+                let detailVc = segue.destination as? RecipeDetailViewController
+                detailVc?.recipe = recipe
+            }
+        } else if segue.identifier == "addRecipe" {
+            let navVc = segue.destination as? UINavigationController
+            let addVc = navVc?.viewControllers.first as? AddRecipeViewController
+            addVc?.delegate = self
+        }
+    }
+    
     @IBAction func recipeSegment(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
-        case 0,2:
-            selectedType = .vegetarian
+        case 0:
+            selectedType = nil
         case 1:
-            selectedType = .meat
-        default:
             selectedType = .vegetarian
+        default:
+            selectedType = .meat
         }
         
+        recipeTableView.reloadData()
+    }
+    
+    func add(recipe: Recipe) {
+        model.addRecipe(recipe: recipe)
         recipeTableView.reloadData()
     }
     
@@ -58,6 +77,10 @@ extension RecipeListViewController: UITableViewDataSource {
 extension RecipeListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
