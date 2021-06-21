@@ -32,6 +32,7 @@ class RecipeListViewController: UIViewController, AddRecipeDelegate {
             let navVc = segue.destination as? UINavigationController
             let addVc = navVc?.viewControllers.first as? AddRecipeViewController
             addVc?.delegate = self
+            addVc?.context = model.context
         }
     }
     
@@ -67,7 +68,7 @@ extension RecipeListViewController: UITableViewDataSource {
         let recipes = model.burgers(forType: selectedType)[indexPath.row]
         cell.textLabel?.text = recipes.name
         cell.detailTextLabel?.text = recipes.ingredients
-        cell.imageView?.image = UIImage(named: recipes.thumbnailName)
+        cell.imageView?.image = recipes.bannerImage
         
         return cell;
     }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 protocol AddRecipeDelegate {
     func add(recipe: Recipe)
@@ -20,6 +21,7 @@ class AddRecipeViewController: UIViewController {
     let placeholderText = "Add Ingredients"
     
     var delegate: AddRecipeDelegate?
+    var context: NSManagedObjectContext!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +32,8 @@ class AddRecipeViewController: UIViewController {
 
     @IBAction func saveNewRecipe(_ sender: Any) {
         guard let recipeName = newRecipeName.text else { return }
-        let recipe = Recipe(name: recipeName,ingredients: newRecipeDetail.text,imageName: "",thumbnailName: "",type: RecipeType.vegetarian)
+        let recipe = Recipe(name: recipeName,ingredients: newRecipeDetail.text,
+                            recipeType: RecipeType.vegetarian,context: context)
         delegate?.add(recipe: recipe)
         dismiss(animated: true)
     }

@@ -19,7 +19,7 @@ class RecipeDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        detailImage.image = UIImage(named: recipe.imageName)
+        detailImage.image = recipe.bannerImage
         detailNameLabel.text = recipe.name
         detailRecipe.text = recipe.ingredients
         // Do any additional setup after loading the view.

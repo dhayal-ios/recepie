@@ -9,7 +9,7 @@
 import Foundation
 
 
-struct Recipe: Decodable {
+struct RecipeJSON: Decodable {
     var name:String
     var ingredients:String
     var imageName:String

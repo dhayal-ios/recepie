@@ -19,8 +19,11 @@
 		3749D50626788ED5000F5CD1 /* RecipeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3749D50526788ED5000F5CD1 /* RecipeListViewController.swift */; };
 		3749D50826788FC8000F5CD1 /* FavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3749D50726788FC8000F5CD1 /* FavouritesViewController.swift */; };
 		3749D50A2678B078000F5CD1 /* BurgerResources in Resources */ = {isa = PBXBuildFile; fileRef = 3749D5092678B078000F5CD1 /* BurgerResources */; };
-		3749D50D2678B135000F5CD1 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3749D50C2678B135000F5CD1 /* Recipe.swift */; };
+		3749D50D2678B135000F5CD1 /* RecipeJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3749D50C2678B135000F5CD1 /* RecipeJSON.swift */; };
 		3749D50F2678B290000F5CD1 /* RecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3749D50E2678B290000F5CD1 /* RecipeModel.swift */; };
+		37E9ED82267F2D3700D0C455 /* BurgerRecipe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 37E9ED80267F2D3700D0C455 /* BurgerRecipe.xcdatamodeld */; };
+		37FED59826805C1100AE4F10 /* PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FED59726805C1100AE4F10 /* PersistentContainer.swift */; };
+		37FED59B268060D300AE4F10 /* Recipe+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FED599268060D300AE4F10 /* Recipe+CoreDataClass.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,8 +41,11 @@
 		3749D50526788ED5000F5CD1 /* RecipeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListViewController.swift; sourceTree = "<group>"; };
 		3749D50726788FC8000F5CD1 /* FavouritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewController.swift; sourceTree = "<group>"; };
 		3749D5092678B078000F5CD1 /* BurgerResources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = BurgerResources; sourceTree = "<group>"; };
-		3749D50C2678B135000F5CD1 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		3749D50C2678B135000F5CD1 /* RecipeJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeJSON.swift; sourceTree = "<group>"; };
 		3749D50E2678B290000F5CD1 /* RecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModel.swift; sourceTree = "<group>"; };
+		37E9ED81267F2D3700D0C455 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		37FED59726805C1100AE4F10 /* PersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentContainer.swift; sourceTree = "<group>"; };
+		37FED599268060D300AE4F10 /* Recipe+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Recipe+CoreDataClass.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +89,7 @@
 				3711600E267A3F54004D656F /* AddRecipeStoryboard.storyboard */,
 				37116010267A567B004D656F /* AddRecipeViewController.swift */,
 				37116012267A5696004D656F /* RecipeDetailViewController.swift */,
+				37E9ED80267F2D3700D0C455 /* BurgerRecipe.xcdatamodeld */,
 			);
 			path = Recipe;
 			sourceTree = "<group>";
@@ -101,8 +108,10 @@
 		3749D50B2678B095000F5CD1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3749D50C2678B135000F5CD1 /* Recipe.swift */,
+				37FED599268060D300AE4F10 /* Recipe+CoreDataClass.swift */,
+				3749D50C2678B135000F5CD1 /* RecipeJSON.swift */,
 				3749D50E2678B290000F5CD1 /* RecipeModel.swift */,
+				37FED59726805C1100AE4F10 /* PersistentContainer.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -183,11 +192,14 @@
 			files = (
 				3749D50826788FC8000F5CD1 /* FavouritesViewController.swift in Sources */,
 				37116011267A567B004D656F /* AddRecipeViewController.swift in Sources */,
+				37FED59826805C1100AE4F10 /* PersistentContainer.swift in Sources */,
 				37116013267A5696004D656F /* RecipeDetailViewController.swift in Sources */,
 				3749D4EF267888DF000F5CD1 /* AppDelegate.swift in Sources */,
+				37FED59B268060D300AE4F10 /* Recipe+CoreDataClass.swift in Sources */,
 				3749D4F1267888DF000F5CD1 /* SceneDelegate.swift in Sources */,
+				37E9ED82267F2D3700D0C455 /* BurgerRecipe.xcdatamodeld in Sources */,
 				3749D50626788ED5000F5CD1 /* RecipeListViewController.swift in Sources */,
-				3749D50D2678B135000F5CD1 /* Recipe.swift in Sources */,
+				3749D50D2678B135000F5CD1 /* RecipeJSON.swift in Sources */,
 				3749D50F2678B290000F5CD1 /* RecipeModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -386,6 +398,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		37E9ED80267F2D3700D0C455 /* BurgerRecipe.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				37E9ED81267F2D3700D0C455 /* Model.xcdatamodel */,
+			);
+			currentVersion = 37E9ED81267F2D3700D0C455 /* Model.xcdatamodel */;
+			path = BurgerRecipe.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3749D4E3267888DF000F5CD1 /* Project object */;
 }
